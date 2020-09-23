@@ -19,47 +19,47 @@ public class TimeUtils {
         if (time >= 29030400) {
             years = time / 29030400;
             aux -= years * 29030400;
-            sb.append((years == 1) ? (years + " ano ")
-                    : (years + " anos "));
+            sb.append((years == 1) ? ("§7" +years + " §cano§r ")
+                    : ("§7" +years + " §canos§r "));
         }
 
         if (aux >= 2419200) {
             months = aux / 2419200;
             aux -= months * 2419200;
-            sb.append((months == 1) ? (months + " mês ")
-                    : (months + " meses "));
+            sb.append((months == 1) ? ("§7" +months + " §cmês§r ")
+                    : ("§7" +months + " §cmeses§r "));
         }
 
         if (aux >= 604800) {
             weeks = aux / 604800;
             aux -= weeks * 604800;
-            sb.append((weeks == 1) ? (weeks + " semana ")
-                    : (weeks + " semanas "));
+            sb.append((weeks == 1) ? ("§7" +weeks + " §csemana§r ")
+                    : ("§7" +weeks + " §csemanas§r "));
         }
 
         if (aux >= 86400) {
             days = aux / 86400;
             aux -= days * 86400;
-            sb.append((days == 1) ? (days + " dia ")
-                    : (days + " dias "));
+            sb.append((days == 1) ? ("§7" +days + " §cdia§r ")
+                    : ("§7" +days + " §cdias§r "));
         }
 
         if (aux >= 3600) {
             hours = aux / 3600;
             aux -= hours * 3600;
-            sb.append((hours == 1) ? (hours + " hora ")
-                    : (hours + " horas "));
+            sb.append((hours == 1) ? ("§7" +hours + " §chora§r ")
+                    : ("§7" +hours + " §choras§r "));
         }
         if (aux >= 60) {
             minutes = aux / 60;
             aux -= minutes * 60;
-            sb.append((minutes == 1) ? (minutes + " minuto ")
-                    : (minutes + " minutos "));
+            sb.append((minutes == 1) ? ("§7" +minutes + " §cminuto§r ")
+                    : ("§7" +minutes + " §cminutos§r "));
         }
         if (aux > 0) {
             seconds = aux;
-            sb.append((seconds == 1) ? (seconds + " segundo")
-                    : (seconds + " segundos"));
+            sb.append((seconds == 1) ? ("§7" +seconds + " §csegundo§r")
+                    : ("§7" +seconds + " §csegundos§r"));
         }
         return sb.substring(0, sb.toString().length());
     }
