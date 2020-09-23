@@ -1,0 +1,7 @@
+name: FullPvP
+version: ${project.version}
+main: com.yan.fullpvp.Main
+api-version: 1.16
+prefix: FullPvP
+authors: [Yspatt]
+description: A simple FullPvP plugin
