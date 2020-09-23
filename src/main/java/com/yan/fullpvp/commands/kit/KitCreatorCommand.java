@@ -1,13 +1,18 @@
 package com.yan.fullpvp.commands.kit;
 
+import com.google.common.collect.Lists;
 import com.yan.fullpvp.Main;
 import com.yan.fullpvp.data.kits.Kit;
 import com.yan.fullpvp.libs.command.CustomCommand;
 import com.yan.fullpvp.libs.command.annotation.CommandName;
 import com.yan.fullpvp.libs.util.time.TimeParser;
 import com.yan.fullpvp.service.IKitService;
+import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Arrays;
 
 public class KitCreatorCommand extends CustomCommand {
 
@@ -35,6 +40,8 @@ public class KitCreatorCommand extends CustomCommand {
             }
             kit = service.create(arguments[0]);
             kit.setDelay(TimeParser.parseString(arguments[1]));
+            kit.setItems(Lists.newArrayList());
+            for (ItemStack content : player.getInventory().getContents()) { if (content == null || content.getType() == Material.AIR)continue;kit.getItems().add(content); }
             player.sendMessage("§aVocê criou o kit §f'" + kit.getName() + "' §acom sucesso!");
         }
     }

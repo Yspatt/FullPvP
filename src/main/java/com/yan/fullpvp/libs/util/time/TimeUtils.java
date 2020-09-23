@@ -40,26 +40,26 @@ public class TimeUtils {
         if (aux >= 86400) {
             days = aux / 86400;
             aux -= days * 86400;
-            sb.append((days == 1) ? ("§7" +days + " §cdia§r ")
-                    : ("§7" +days + " §cdias§r "));
+            sb.append((days == 1) ? ("§7" +days + " §cD§r ")
+                    : ("§7" +days + " §cD§r "));
         }
 
         if (aux >= 3600) {
             hours = aux / 3600;
             aux -= hours * 3600;
-            sb.append((hours == 1) ? ("§7" +hours + " §chora§r ")
-                    : ("§7" +hours + " §choras§r "));
+            sb.append((hours == 1) ? ("§7" +hours + " §cH§r ")
+                    : ("§7" +hours + " §cH§r "));
         }
         if (aux >= 60) {
             minutes = aux / 60;
             aux -= minutes * 60;
-            sb.append((minutes == 1) ? ("§7" +minutes + " §cminuto§r ")
-                    : ("§7" +minutes + " §cminutos§r "));
+            sb.append((minutes == 1) ? ("§7" +minutes + " §cM§r ")
+                    : ("§7" +minutes + " §cM§r "));
         }
         if (aux > 0) {
             seconds = aux;
-            sb.append((seconds == 1) ? ("§7" +seconds + " §csegundo§r")
-                    : ("§7" +seconds + " §csegundos§r"));
+            sb.append((seconds == 1) ? ("§7" +seconds + " §cS§r")
+                    : ("§7" +seconds + " §cS§r"));
         }
         return sb.substring(0, sb.toString().length());
     }

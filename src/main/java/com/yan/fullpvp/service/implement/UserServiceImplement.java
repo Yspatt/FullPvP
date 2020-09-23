@@ -15,7 +15,8 @@ public class UserServiceImplement implements IUserService {
 
     @Override
     public User create(UUID uuid) {
-        User user = User.builder().uuid(uuid).build();
+        User user = new User(uuid);
+        users.add(user);
         return user;
     }
 

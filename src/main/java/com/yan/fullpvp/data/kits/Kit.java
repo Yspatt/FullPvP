@@ -1,5 +1,6 @@
 package com.yan.fullpvp.data.kits;
 
+import com.google.common.collect.Lists;
 import lombok.Builder;
 import lombok.Data;
 import org.bukkit.inventory.ItemStack;
@@ -7,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.List;
 import java.util.UUID;
 
-@Data @Builder public class Kit {
+@Data public class Kit {
 
     private UUID id;
 
@@ -15,6 +16,16 @@ import java.util.UUID;
 
     private long delay;
 
-    private List<ItemStack> items;
+    private List<ItemStack> items = Lists.newArrayList();
+
+    public Kit(String name,UUID id){
+        this.name = name;
+        this.id = id;
+    }
+
+    public Kit(String name){
+        this.name = name;
+        this.id = UUID.randomUUID();
+    }
 
 }

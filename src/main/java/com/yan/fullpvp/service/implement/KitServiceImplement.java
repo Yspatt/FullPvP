@@ -28,7 +28,8 @@ public class KitServiceImplement implements IKitService {
 
     @Override
     public Kit create(String name) {
-        Kit kit = Kit.builder().name(name).build();
+        Kit kit = new Kit(name);
+        kits.add(kit);
         return kit;
     }
 
@@ -43,11 +44,12 @@ public class KitServiceImplement implements IKitService {
         if (section == null)return;
         for (String string : section.getKeys(false)){
             String path = "Kits." + string;
-            Kit kit = create(file.getString(path + ".name"));
+            Kit kit = new Kit(file.getString(path + ".name"),UUID.fromString(string));
             kit.setId(UUID.fromString(string));
             kit.setDelay((Long) file.get(path + ".delay"));
             List<ItemStack> items = (List<ItemStack>) file.getList(path + ".items");
             kit.setItems(items);
+            kits.add(kit);
         }
     }
 
@@ -58,5 +60,6 @@ public class KitServiceImplement implements IKitService {
             file.set("kits." + kit.getId().toString() + ".delay",kit.getDelay());
             file.set("kits." + kit.getId().toString() + ".items",kit.getItems());
         }
+        file.save();
     }
 }
