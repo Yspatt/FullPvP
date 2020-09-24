@@ -80,6 +80,10 @@ public class CoreFile {
         return this.get(path, null);
     }
 
+    public Long getLong(final String path){
+        return (long) this.get(path, 0L);
+    }
+
     public String getString(final String path) {
         String value = (String) get(path, "");
         if (value == null || value.isEmpty()) return value;

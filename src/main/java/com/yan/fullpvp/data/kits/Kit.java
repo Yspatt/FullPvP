@@ -14,9 +14,10 @@ import java.util.UUID;
 
     private String name;
 
-    private long delay;
+    private int delay;
 
     private List<ItemStack> items = Lists.newArrayList();
+    private List<ItemStack> armor = Lists.newArrayList();
 
     public Kit(String name,UUID id){
         this.name = name;

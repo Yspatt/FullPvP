@@ -1,7 +1,6 @@
 package com.yan.fullpvp.data.user;
 
 import com.google.common.collect.Maps;
-import com.yan.fullpvp.data.kits.Kit;
 import lombok.Data;
 
 import java.util.Map;
@@ -11,7 +10,7 @@ import java.util.UUID;
 
     private UUID uuid;
 
-    private Map<Kit,Long> delayKits;
+    private Map<String,Long> delayKits;
 
     public User(UUID uuid){
         this.uuid = uuid;

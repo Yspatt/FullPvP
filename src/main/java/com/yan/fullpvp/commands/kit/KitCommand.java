@@ -1,5 +1,6 @@
 package com.yan.fullpvp.commands.kit;
 
+import com.google.common.collect.Maps;
 import com.yan.fullpvp.Main;
 import com.yan.fullpvp.data.kits.Kit;
 import com.yan.fullpvp.data.user.User;
@@ -35,15 +36,16 @@ public class KitCommand extends CustomCommand {
                 sender.sendMessage("§cEste kit não existe.");
                 return;
             }
-            if (user.getDelayKits().keySet().stream().anyMatch(e -> e.equals(kit))) {
-                if (System.currentTimeMillis() < user.getDelayKits().get(kit)) {
-                    sender.sendMessage("§cVocê precisa aguardar " + TimeUtils.timeLeft(user.getDelayKits().get(kit) - System.currentTimeMillis()) + "§c para pegar o kit novamente!");
+            if (user.getDelayKits().keySet().stream().anyMatch(e -> e.equals(kit.getName()))) {
+                if (System.currentTimeMillis() < user.getDelayKits().get(kit.getName())) {
+                    sender.sendMessage("§cVocê precisa aguardar " + TimeUtils.timeLeft(user.getDelayKits().get(kit.getName()) - System.currentTimeMillis()) + "§c para pegar o kit novamente!");
                     return;
                 }
             }
-            user.getDelayKits().put(kit, System.currentTimeMillis() + kit.getDelay());
-            sender.sendMessage("§aVocê pegou o kit §f'" + kit.getName() + "'§a com sucesso.");
-            for (ItemStack item : kit.getItems()) { player.getInventory().addItem(item); }
+            if (kitService.give(kit,player)){
+                user.getDelayKits().put(kit.getName(), System.currentTimeMillis() + kit.getDelay());
+                sender.sendMessage("§aVocê pegou o kit §f'" + kit.getName() + "'§a com sucesso.");
+            }
         }
     }
 }

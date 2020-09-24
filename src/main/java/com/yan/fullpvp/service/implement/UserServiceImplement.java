@@ -61,9 +61,11 @@ public class UserServiceImplement implements IUserService {
            Main.getInstance().getHikariSource().result(statement,(resultSet ->{
                 if (!resultSet.next()){
                     create(uuid);
+                    System.out.println("created");
                     return;
                 }
                 all().add(gson.fromJson(resultSet.getString("data"), User.class));
+               System.out.println("loaded");
             }));
         });
     }
