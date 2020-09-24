@@ -1,0 +1,13 @@
+messages:
+
+  no-permission: '&cVocê não tem permissão para isto!'
+  inventory-full: '&cVocê não tem espaço suficiente em seu inventário.'
+
+  # Player kit command
+  kit-not-exists: '&cEste kit não existe.'
+  kit-delay: '&cVocê precisa aguardar {time} &cpara poder pegar o kit novamente!'
+  kit-receive: '&aVocê pegou o kit &f{kit} &acom sucesso!'
+
+  # Player warp command
+  warp-not-exists: '&cA warp &f{warp} &cnão existe!'
+  warp-teleport: '&aVocê foi até a warp &f{warp} &acom sucesso!'

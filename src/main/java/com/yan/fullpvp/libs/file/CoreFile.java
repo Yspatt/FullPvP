@@ -189,6 +189,7 @@ public class CoreFile {
         }
     }
 
+    public String getStringCache(String path){ return this.getCache(path).toString().replace("&","§");}
     public Object getCache(String path) {
         return this.cache.get(path);
     }

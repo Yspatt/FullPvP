@@ -11,7 +11,6 @@ import com.yan.fullpvp.service.IKitService;
 import com.yan.fullpvp.service.IUserService;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 public class KitCommand extends CustomCommand {
 
@@ -33,18 +32,24 @@ public class KitCommand extends CustomCommand {
 
             Kit kit = kitService.get(arguments[0]);
             if (kit == null) {
-                sender.sendMessage("§cEste kit não existe.");
+                sender.sendMessage(Main.getConfiguration().getStringCache("messages.kit-not-exists"));
                 return;
             }
+
+            if (!player.hasPermission("fullpvp.kits." + kit.getName())){
+                player.sendMessage(Main.getConfiguration().getStringCache("messages.no-permission"));
+                return;
+            }
+
             if (user.getDelayKits().keySet().stream().anyMatch(e -> e.equals(kit.getName()))) {
                 if (System.currentTimeMillis() < user.getDelayKits().get(kit.getName())) {
-                    sender.sendMessage("§cVocê precisa aguardar " + TimeUtils.timeLeft(user.getDelayKits().get(kit.getName()) - System.currentTimeMillis()) + "§c para pegar o kit novamente!");
+                    sender.sendMessage(Main.getConfiguration().getStringCache("messages.kit-delay").replace("{time}",TimeUtils.timeLeft(user.getDelayKits().get(kit.getName()) - System.currentTimeMillis())));
                     return;
                 }
             }
             if (kitService.give(kit,player)){
                 user.getDelayKits().put(kit.getName(), System.currentTimeMillis() + kit.getDelay());
-                sender.sendMessage("§aVocê pegou o kit §f'" + kit.getName() + "'§a com sucesso.");
+                sender.sendMessage(Main.getConfiguration().getStringCache("messages.kit-receive").replace("{kit}",kit.getName()));
             }
         }
     }

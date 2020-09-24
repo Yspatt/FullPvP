@@ -12,6 +12,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -35,6 +36,11 @@ public abstract class CorePlugin extends JavaPlugin {
     public abstract void enable();
     public abstract void disable();
     public abstract void load();
+
+
+    public List<RegisteredServiceProvider<?>> getServices(){
+        return Bukkit.getServicesManager().getRegistrations(this);
+    }
 
     public <T> T getService(Class<T> service) {
         Objects.requireNonNull(service, "clazz");

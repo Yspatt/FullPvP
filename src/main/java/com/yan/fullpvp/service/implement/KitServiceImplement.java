@@ -60,6 +60,13 @@ public class KitServiceImplement implements IKitService {
     }
 
     @Override
+    public void delete(Kit kit) {
+        file.set("kits." + kit.getId().toString(),null);
+        file.save();
+        all().remove(kit);
+    }
+
+    @Override
     public void stop() {
         for (Kit kit : all()) {
             file.set("kits." + kit.getId().toString() + ".name",kit.getName());
@@ -74,15 +81,13 @@ public class KitServiceImplement implements IKitService {
     public boolean give(Kit kit, Player player){
 
         if (InventoryUtil.slots(player.getInventory().getContents(),true) < (kit.getItems().size() + kit.getArmor().size())){
-            player.sendMessage("§cVocê deve ter espaço no seu invetário para poder pegar seu kit!");
+            player.sendMessage(Main.getConfiguration().getStringCache("messages.inventory-full"));
             return false;
         }else {
             for (ItemStack item : kit.getItems()) {
                 player.getInventory().addItem(item);
             }
             if (kit.getArmor().size() > 0) {
-                Bukkit.broadcastMessage("" +InventoryUtil.slots(player.getInventory().getArmorContents(), false));
-                Bukkit.broadcastMessage("" +InventoryUtil.slots(player.getInventory().getArmorContents(), true));
                 if (InventoryUtil.slots(player.getInventory().getArmorContents(), false) > 0) {
                     for (ItemStack itemStack : kit.getArmor()) {
                         player.getInventory().addItem(itemStack);

@@ -71,6 +71,11 @@ public class UserServiceImplement implements IUserService {
     }
 
     @Override
+    public void delete(User user) {
+
+    }
+
+    @Override
     public void save(User user) {
         Gson gson = Main.getInstance().getGson();
 

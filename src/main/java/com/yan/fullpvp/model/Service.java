@@ -7,6 +7,8 @@ public interface Service<T> {
 
     T get(UUID id);
 
+    void delete(T t);
+
     List<T> all();
 
     void init();
