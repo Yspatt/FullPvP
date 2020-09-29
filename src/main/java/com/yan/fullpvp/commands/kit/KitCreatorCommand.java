@@ -18,7 +18,7 @@ public class KitCreatorCommand extends CustomCommand {
 
     @CommandName("createkit")
     public void command(CommandSender sender, String label, String[] arguments) {
-        if (!sender.hasPermission("fullpvp.createkit")){
+        if (!sender.hasPermission("fullpvp.kits.createkit")){
             sender.sendMessage(getPermissionMessage());
             return;
         }

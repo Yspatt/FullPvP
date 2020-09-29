@@ -23,6 +23,10 @@ public class WarpCommand extends CustomCommand {
                 sender.sendMessage(Main.getConfiguration().getStringCache("messages.warp-not-exists").replace("{warp}",arguments[0]));
                 return;
             }
+            if (!player.hasPermission("fullpvp.warps.warp." + warp.getName().toLowerCase())){
+                player.sendMessage(Main.getConfiguration().getStringCache("messages.no-permission"));
+                return;
+            }
             player.teleport(warp.getLocation());
             player.sendMessage(Main.getConfiguration().getStringCache("messages.warp-teleport").replace("{warp}",warp.getName()));
         }

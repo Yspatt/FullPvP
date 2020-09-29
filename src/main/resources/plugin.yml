@@ -5,3 +5,5 @@ api-version: 1.16
 prefix: FullPvP
 authors: [Yspatt]
 description: A simple FullPvP plugin
+depend:
+  - PlaceholderAPI

@@ -12,6 +12,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -25,7 +26,11 @@ public abstract class CorePlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        disable();
+        try {
+            disable();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -34,7 +39,7 @@ public abstract class CorePlugin extends JavaPlugin {
     }
 
     public abstract void enable();
-    public abstract void disable();
+    public abstract void disable() throws SQLException;
     public abstract void load();
 
 

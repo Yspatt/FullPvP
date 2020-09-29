@@ -36,7 +36,7 @@ public class KitCommand extends CustomCommand {
                 return;
             }
 
-            if (!player.hasPermission("fullpvp.kits." + kit.getName())){
+            if (!player.hasPermission("fullpvp.kits.kit." + kit.getName())){
                 player.sendMessage(Main.getConfiguration().getStringCache("messages.no-permission"));
                 return;
             }

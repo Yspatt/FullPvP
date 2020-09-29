@@ -190,6 +190,9 @@ public class CoreFile {
     }
 
     public String getStringCache(String path){ return this.getCache(path).toString().replace("&","§");}
+    public Boolean getBooleanCache(String path){ return Boolean.valueOf(this.getCache(path).toString());}
+    public Integer getIntegerCache(String path){ return Integer.valueOf(this.getCache(path).toString());}
+    public List<String> getStringListCache(String path){ return (List<String>) this.cache.get(path);}
     public Object getCache(String path) {
         return this.cache.get(path);
     }

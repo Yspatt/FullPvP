@@ -14,7 +14,7 @@ public class WarpSetCommand extends CustomCommand {
     public void command(CommandSender sender, String label, String[] arguments) {
         if (sender instanceof Player){
             Player player = (Player)sender;
-            if (!player.hasPermission("fullpvp.setwarp")){
+            if (!player.hasPermission("fullpvp.warps.setwarp")){
                 player.sendMessage(getPermissionMessage());
                 return;
             }

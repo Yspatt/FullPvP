@@ -14,11 +14,13 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void join(PlayerJoinEvent event){
+        event.setJoinMessage(null);
         userService.load(event.getPlayer().getUniqueId());
     }
 
     @EventHandler
     public void quit(PlayerQuitEvent event){
+        event.setQuitMessage(null);
         User user = userService.get(event.getPlayer().getUniqueId());
         userService.save(user);
     }

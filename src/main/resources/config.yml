@@ -1,4 +1,46 @@
+
+# Permissões:
+#
+#                           Chat
+# - Falar colorido no chat: fullpvp.chat.color
+# - Falar no global com espaçamento no chat: fullpvp.chat.spotlight
+#
+#                           Kits
+# - Criar um kit: fullpvp.kits.createkit
+# - Deletar um kit: fullpvp.kits.delkit
+# - Pegar algum kit: fullpvp.kits.kit.{nome do kit}
+#
+#                           Warps
+# - Ir até alguma warp: fullpvp.warps.warp.{nome da warp}
+# - Deletar uma warp: fullpvp.warps.delwarp
+# - Criar uma warp: fullpvp.warps.setwarp
+#
+
+
+
+config:
+  # Chat
+  local-chat-radius: 50
+  local-chat-format: '&e[&lL&e] %player% » %message%'
+
+  global-chat-spotlight: true # Destaque da mensagem de quem tem a permissão fullpvp.chat.spotlight
+  global-chat-format: '&7[&lG&7] %player% » %message%'
+
+  console-chat-format: '&c » &lCONSOLE &f%message%'
+
+
+
+scoreboard:
+  title: '&aFullPvP'
+  lines:
+    - 'Olá %player%'
+    - 'Dinheiro: 0'
+    - '%test%'
+
 messages:
+
+  # Chat
+  nobody-around: '&cNão há ninguém por perto de você!'
 
   no-permission: '&cVocê não tem permissão para isto!'
   inventory-full: '&cVocê não tem espaço suficiente em seu inventário.'

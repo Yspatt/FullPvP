@@ -13,7 +13,7 @@ public class KitDelCommand extends CustomCommand {
 
     @CommandName("delkit")
     public void command(CommandSender sender, String label, String[] arguments) {
-        if (!sender.hasPermission("fullpvp.delkit")){
+        if (!sender.hasPermission("fullpvp.kits.delkit")){
             sender.sendMessage(getPermissionMessage());
             return;
         }

@@ -14,7 +14,7 @@ public class WarpDelCommand extends CustomCommand {
     public void command(CommandSender sender, String label, String[] arguments) {
         if (sender instanceof Player){
             Player player = (Player)sender;
-            if (!player.hasPermission("fullpvp.delwarp")){
+            if (!player.hasPermission("fullpvp.warps.delwarp")){
                 player.sendMessage(getPermissionMessage());
                 return;
             }
