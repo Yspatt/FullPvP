@@ -28,7 +28,20 @@ config:
 
   console-chat-format: '&c » &lCONSOLE &f%message%'
 
-
+mines:
+  progressbar:
+    icon: '■'
+    not-completed-color: '&c'
+    completed-color: '&a'
+    max-icons: 100
+  hologram:
+    - '&eMina &b%mine%'
+    - '&0'
+    - '&eBlocos quebrados: &f%block_break%/%block_max%'
+    - '&e -> %progress_bar%'
+    - '&eJogadores Minerando:&f %players%'
+    - '&eReseta em: %reset%'
+    - '&0'
 
 scoreboard:
   title: '&aFullPvP'

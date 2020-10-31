@@ -7,3 +7,4 @@ authors: [Yspatt]
 description: A simple FullPvP plugin
 depend:
   - PlaceholderAPI
+  - HolographicDisplays

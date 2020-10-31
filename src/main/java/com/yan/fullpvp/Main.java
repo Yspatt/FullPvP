@@ -11,6 +11,7 @@ import com.yan.fullpvp.commands.warp.WarpDelCommand;
 import com.yan.fullpvp.commands.warp.WarpSetCommand;
 import com.yan.fullpvp.controller.DatabaseController;
 import com.yan.fullpvp.controller.ScoreBoardController;
+import com.yan.fullpvp.data.mines.Mine;
 import com.yan.fullpvp.helpers.CorePlugin;
 import com.yan.fullpvp.libs.database.CoreHikariImplement;
 import com.yan.fullpvp.libs.file.CoreFile;

@@ -2,7 +2,6 @@ package com.yan.fullpvp.listener.chat;
 
 import com.yan.fullpvp.Main;
 import me.clip.placeholderapi.PlaceholderAPI;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
